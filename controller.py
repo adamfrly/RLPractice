@@ -13,19 +13,19 @@ class Controller:
 
         table = Table(Player1, Player2, Player3, Player4)
     
-    def playGame(self):
+    def playGame(self, tble):
         print("Starting the game now.")
 
         round = 1
 
-        while not Table.gameover:
+        while not tble.gameover:
             print(f"Starting Round: {round}")
             print(f"Current Score: Team 1 has {Table.team1score} points and Team 2 has {Table.team2score} points.")
 
-            Table.deal()
-            Table.chooseTrump()
-            Table.playHand()
+            tble.deal()
+            tble.chooseTrump()
+            tble.playHand()
 
             round += 1
-            Table.shiftDeal()
+            tble.shiftDeal()
 

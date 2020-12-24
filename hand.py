@@ -1,17 +1,24 @@
-from trick import Trick
+# from trick import Trick
 from deck import Deck
+from dataclasses import dataclass, field
+from card import Card
 
 
+@dataclass
 class Hand:
-    def __init__(self):
-        self.team1Tricks = 0
-        self.team2Tricks = 0
-        self.dealer = 0
-        self.leader = 0
-        self.caller = 0
-        self.trump = 0
-        self.currentTrick = Trick()
-        self.pastTricks = []
+    kitty: Deck
+    flipped: Card = field(init=False)
+    # currentTrick: Trick = field(init=False)
+    # pastTricks: list[Trick] = field(init=False)
+    team1Tricks: int = field(init=False, default=0)
+    team2Tricks: int = field(init=False, default=0)
+    dealer: int = field(init=False, default=0)
+    leader: int = field(init=False, default=0)
+    caller: int = field(init=False, default=0)
+    trump: int = field(init=False, default=0)
+
+    def __post_init__(self):
+        self.flipped = self.kitty.getTopCard()
 
     def playTrick(self):
         """
