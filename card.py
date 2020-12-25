@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from typing import ClassVar
+# Should be explicit with typing at some point
 
 
 @dataclass

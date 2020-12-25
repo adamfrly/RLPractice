@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from random import shuffle
 from card import Card
-
+# Should be explicit with typing at some point
 
 def make_deck():
     return [Card(rank, suit) for suit in range(1, 5) for rank in range(9, 15)]

@@ -2,6 +2,7 @@
 from deck import Deck
 from dataclasses import dataclass, field
 from card import Card
+# Should be explicit with typing at some point
 
 
 @dataclass

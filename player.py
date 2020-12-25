@@ -1,3 +1,5 @@
+# Should be explicit with typing at some point
+
 class Player:
     def __init__(self):
         self.cards = []
@@ -32,15 +34,14 @@ class Player:
 
     # Right now this handles ties by taking the first "worst" card it sees. Could break ties by number of suits
     def findWorstCard(self, trumpSuit):
-        min = 25
-        currentVal = 0
+        minimum = 100
         worst = None
         for card in self.cards:
             currentVal = card.value
             if card.suit == trumpSuit:
                 currentVal += 6
-            if currentVal < min:
-                min = currentVal
+            if currentVal < minimum:
+                minimum = currentVal
                 worst = card
         return worst
 

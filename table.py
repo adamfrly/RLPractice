@@ -1,3 +1,4 @@
+# Should be explicit with typing at some point
 from deck import Deck
 from player import Player
 from hand import Hand
@@ -13,6 +14,7 @@ class Table:
         self.team2Score = 0
         self.deck = Deck()
         self.kitty = None
+        self.dealer = 0
 
     def deal(self):
         self.deck.shuffle()
@@ -20,17 +22,31 @@ class Table:
             self.players[i % 4].cards.append(self.deck.getTopCard())
         self.kitty = self.deck
 
-    # def shiftDeal():
+    def shiftDeal(self):
+        self.players[self.dealer].isDealer = False
+        self.dealer = (self.dealer + 1) % 4
+        self.players[self.dealer].isDealer = True
 
-    # def chooseTrump():
+    # Needs to run through all suits, and all players, (right now it's broken).
+    # def chooseTrump(self): # Returns the index of the person who called trump. If -1, then it's screw the dealer
+    #     flipped = self.kitty.getTopCard()
+    #     calledTrump = -1
+    #     for player in self.players:
+    #         calledTrump = self.players.index(player) if player.orderUp(flipped) else -1
+    #         if calledTrump and self.dealer == self.players.index(player): # Dealer picked up
+    #         elif calledTrump and (self.dealer + 2 % 4) == self.players.index(player): # Dealer's partner picked up
+    #         elif
+
         # Get a player to choose Trump
         # Change card values to their trump values (Bowers)
-            # for player in self.players:
-            #     for card in player.cards:
-            #         if card.isLBower(trumpSuit=trump):
-            #             card.value = 15
-            #         elif card.isRBower(trumpSuit=trump):
-            #             card.value = 16
+        #     for player in self.players:
+        #         for card in player.cards:
+        #             if card.isLBower(trumpSuit=trump):
+        #                 card.value = 15
+        #                 card.suit = trump # This way the left bower will be recognized as the trump suit
+        #             elif card.isRBower(trumpSuit=trump):
+        #                 card.value = 16
+        return trump
 
     # def playHand():
     #     return blah

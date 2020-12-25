@@ -1,6 +1,6 @@
 from table import Table
 from player import Player
-
+# Should be explicit with typing at some point
 
 class Controller:
     def GameSetup(self):
