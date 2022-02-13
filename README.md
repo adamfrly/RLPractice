@@ -1,2 +1,2 @@
 # EuchreBot
-Looking into the possibility of making a reinforcement learning based Euchre robot
+Implementing several RL algorithms from scrath and then hopefully using one of them to make a half decent Euchre agent.
